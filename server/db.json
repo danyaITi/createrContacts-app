@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "email": "qwe@mail.ru",
+      "password": "$2a$10$kjJxIovZmpGVf6WXnnsUYeygRQnV76iK.dNlOPoAMD44FlIc9hIqu",
+      "id": 1
+    }
+  ],
+  "contacts": [
+    {
+      "firstName": "Clark",
+      "surName": "",
+      "phone": "",
+      "userId": 1,
+      "id": 1
+    }
+  ]
+}

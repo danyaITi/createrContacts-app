@@ -1,0 +1,17 @@
+.input-box{
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        background: none;
+        height: 50px;
+        border: 0;
+        border-bottom: 1px solid rgb(145, 145, 145);
+        &::placeholder{
+            color: rgb(110, 110, 110);
+        }
+
+        
+    }
+}
