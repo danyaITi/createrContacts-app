@@ -24,7 +24,7 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: [{ type: 'Contacts', id: 'LIST' }]
     }),
-    editContact: builder.mutation<any,any>({
+    editContact: builder.mutation<IContacts,IContacts>({
       query: ({id,...body}) => ({
         url: `contacts/${id}`,
         method: 'PATCH', 
