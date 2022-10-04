@@ -1,6 +1,6 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined,LoadingOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.min.css'
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input,Spin } from 'antd';
 import React from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,7 @@ import { fetchLogin } from '../store/api/auth.api';
 
 const LogIn: React.FC = () => {
     const isAuth = useSelector((state:RootState)=>state.auth.auth)
+    const loading = useSelector((state:RootState)=>state.auth.loading)
     const err = useSelector((state:RootState)=>state.auth.errorLogin)
     const appDispatch = useAppDispatch()
 
@@ -27,6 +28,8 @@ const LogIn: React.FC = () => {
     if(isAuth){
         return <Navigate to='/'/>
     }
+
+    const antIcon = <LoadingOutlined style={{ fontSize: 22, color: 'white' }} spin />
 
   return (
     <>
@@ -62,7 +65,7 @@ const LogIn: React.FC = () => {
                     <Form.Item>
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <Button type="primary" htmlType="submit" className="login-form-button me-3 w-100 mb-1">
-                            Войти
+                            {loading ? <Spin indicator={antIcon} /> : 'Войти'}
                             </Button>
                             <span>
                                 или <Link to='/register'><a className='ms-1'>Зарегистрироваться</a></Link>
