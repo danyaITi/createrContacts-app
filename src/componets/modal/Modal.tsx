@@ -18,19 +18,30 @@ const ModalComponent: React.FC = () => {
     message.success('Новый контакт успешно создан');
   };
 
-  const handleAddContact = async () => {
-    if(firstName){
-      await addContact({firstName,surName,phone,userId}).unwrap()
-    } 
+  const warning = () => {
+    message.warning('Введите имя');
+  };
+
+  const closeModal = () =>{
     setModalOpen(false)
     setFirstName('')
     setSurName('')
     setPhone('')
-    success()
   }
 
+  const handleAddContact = async () => {
+    if(firstName){
+      await addContact({firstName,surName,phone,userId}).unwrap()
+      success()
+      closeModal()
+    } else{
+      warning()
+    }
+  }
   
-   
+  const changePhoneInput = () =>{
+    setPhone('+7')
+  }
 
   return (
     <>
@@ -42,14 +53,14 @@ const ModalComponent: React.FC = () => {
         centered
         open={modalOpen}
         onOk={handleAddContact}
-        onCancel={() => setModalOpen(false)}
+        onCancel={closeModal}
         okText={'Готово'}
         cancelText='Отменить'
       >
         <div className='input-box d-flex flex-column'>
           <input type="text" placeholder='Имя' value={firstName} onChange={(e)=>setFirstName(e.target.value)}  />
           <input type="text" placeholder='Фамилия' value={surName} onChange={(e)=>setSurName(e.target.value)}/>
-          <input type="text" placeholder='Номер телефона' value={phone} onChange={(e)=>setPhone(e.target.value)} />
+          <input type="text" onClick={changePhoneInput} placeholder='+7 999 999 999' value={phone} onChange={(e)=>setPhone(e.target.value)} />
         </div>
       </Modal>
     </>
