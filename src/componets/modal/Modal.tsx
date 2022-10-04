@@ -7,11 +7,12 @@ import './Modal.scss'
 
 const ModalComponent: React.FC = () => {
   const userId = useSelector((state:RootState)=> state.auth.userInfo?.id) 
+
   const [firstName, setFirstName] = useState('');
   const [surName, setSurName] = useState('');
   const [phone, setPhone] = useState('');
-
   const [modalOpen, setModalOpen] = useState(false);
+  
   const [addContact] = useAddContactMutation()
 
   const success = () => {

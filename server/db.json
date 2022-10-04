@@ -4,6 +4,11 @@
       "email": "qwe@mail.ru",
       "password": "$2a$10$kjJxIovZmpGVf6WXnnsUYeygRQnV76iK.dNlOPoAMD44FlIc9hIqu",
       "id": 1
+    },
+    {
+      "email": "zxc@mail.ru",
+      "password": "$2a$10$rf05QUmAxLKedv.cPiWQDOBshQCMTR7HvVjTj57akYqZW/ekEuuVC",
+      "id": 2
     }
   ],
   "contacts": [

@@ -66,7 +66,6 @@ const CardComponent: React.FC<CardComponentProps> = ({firstName,surName,phone,id
       </Card>
       <Modal
         title="Редактировать"
-        
         centered
         open={modalOpen}
         onOk={handleEditContact}

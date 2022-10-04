@@ -5,6 +5,7 @@ import {  State } from './types'
 
 const userToken = localStorage.getItem('userToken') ? localStorage.getItem('userToken') : null
 
+
 const initialState:State = {
   userInfo: JSON.parse(localStorage.getItem('user') ?? 'null'),
   auth: false,
