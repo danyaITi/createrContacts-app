@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/createrContacts-app/static/css/main.ffc5efd6.css",
+    "main.js": "/createrContacts-app/static/js/main.d6f407f5.js",
+    "index.html": "/createrContacts-app/index.html",
+    "main.ffc5efd6.css.map": "/createrContacts-app/static/css/main.ffc5efd6.css.map",
+    "main.d6f407f5.js.map": "/createrContacts-app/static/js/main.d6f407f5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ffc5efd6.css",
+    "static/js/main.d6f407f5.js"
+  ]
+}
