@@ -11,7 +11,7 @@ import { fetchLogin } from '../store/api/auth.api';
 
 const LogIn: React.FC = () => {
     const isAuth = useSelector((state:RootState)=>state.auth.auth)
-    const err = useSelector((state:RootState)=>state.auth.error)
+    const err = useSelector((state:RootState)=>state.auth.errorLogin)
     const appDispatch = useAppDispatch()
 
     const {

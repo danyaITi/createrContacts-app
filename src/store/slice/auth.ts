@@ -10,7 +10,8 @@ const initialState:State = {
   userInfo: JSON.parse(localStorage.getItem('user') ?? 'null'),
   auth: false,
   loading: false,
-  error: undefined,
+  errorLogin: undefined,
+  errorSign: undefined,
   userToken
 }
 
@@ -26,7 +27,7 @@ export const authSlice = createSlice({
     // login
     builder.addCase(fetchLogin.rejected, (state, {payload}) => {
       state.loading = false
-      state.error = payload
+      state.errorLogin = payload
     });
     builder.addCase(fetchLogin.fulfilled, (state,action) => {
       state.loading = false
@@ -39,20 +40,20 @@ export const authSlice = createSlice({
     });
     builder.addCase(fetchLogin.pending, (state) => {
       state.loading = true
-      state.error = undefined
+      state.errorLogin = undefined
     });
 
     // register
     builder.addCase(fetchRegister.rejected, (state, {payload}) => {
       state.loading = false
-      state.error = payload
+      state.errorSign = payload
     });
     builder.addCase(fetchRegister.fulfilled, (state) => {
       state.loading = false
     });
     builder.addCase(fetchRegister.pending, (state) => {
       state.loading = true
-      state.error = undefined
+      state.errorSign = undefined
     })
   },
 })

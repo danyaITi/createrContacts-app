@@ -6,5 +6,6 @@ export interface State {
     userToken: string | null,
     userInfo: UserData | null,
     loading:boolean,
-    error: KnownError | undefined ,
+    errorLogin: KnownError | undefined ,
+    errorSign:KnownError | undefined 
 }

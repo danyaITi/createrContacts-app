@@ -1,8 +1,8 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.min.css'
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, message } from 'antd';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { UserData } from '../types/auth';
 import { fetchRegister } from '../store/api/auth.api';
@@ -10,7 +10,7 @@ import { RootState, useAppDispatch } from '../store/store';
 import { useSelector } from 'react-redux';
 
 const Register: React.FC = () => {
-    let err = useSelector((state:RootState)=>state.auth.error)
+    let err = useSelector((state:RootState)=>state.auth.errorSign)
     const navigate = useNavigate()
     const appDispatch = useAppDispatch()
 
@@ -18,13 +18,20 @@ const Register: React.FC = () => {
         register,
     } = useForm()
 
+    const success = () => {
+        message
+          .loading('Создание пользователя...', 2.5)
+          .then(() => message.success('Вы успешно зарегистрировались!', 2))
+      };
+
 
     const registerHandler = async (data:UserData) => {
-        await appDispatch(fetchRegister(data))
         if(err){
             navigate('/register')
         } else{
-            navigate('/login')
+            await appDispatch(fetchRegister(data))
+            success()
+            // navigate('/login')
         }
     }
 
@@ -66,7 +73,7 @@ const Register: React.FC = () => {
                             Зарегистрироваться
                             </Button>
                             <span>
-                                <Link to='/login'><a>Уже есть аккаунт?</a></Link>
+                                <Link to='/login'><a>Войти</a></Link>
                             </span>
                         </div>
                     </Form.Item>

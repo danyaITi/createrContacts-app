@@ -9,6 +9,11 @@
       "email": "zxc@mail.ru",
       "password": "$2a$10$rf05QUmAxLKedv.cPiWQDOBshQCMTR7HvVjTj57akYqZW/ekEuuVC",
       "id": 2
+    },
+    {
+      "email": "fff@mail.ru",
+      "password": "$2a$10$Q9EJu6rQ58n/0ToKqoDUAOHHVQKTC.ZhKfqYqF4ppmlD/Uf0M34SK",
+      "id": 3
     }
   ],
   "contacts": [
