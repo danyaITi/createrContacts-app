@@ -8,8 +8,9 @@ const userToken = localStorage.getItem('userToken') ? localStorage.getItem('user
 
 const initialState:State = {
   userInfo: JSON.parse(localStorage.getItem('user') ?? 'null'),
-  auth: false,
-  loading: false,
+  isAuth: false,
+  isRegister:false,
+  isLoading: false,
   errorLogin: undefined,
   errorSign: undefined,
   userToken
@@ -20,44 +21,45 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
    setAuth: (state,action: PayloadAction<boolean>) => {
-    state.auth = action.payload
-   },
+    state.isAuth = action.payload
+   }
   },
   extraReducers: (builder) => {
     // login
     builder.addCase(fetchLogin.rejected, (state, {payload}) => {
-      state.loading = false
+      state.isLoading = false
       state.errorLogin = payload
     });
     builder.addCase(fetchLogin.fulfilled, (state,action) => {
-      state.loading = false
+      state.isLoading = false
       
       state.userInfo = action.payload.user
       localStorage.setItem('user', JSON.stringify(state.userInfo))
 
       state.userToken = action.payload.accessToken
-      state.auth = true 
+      state.isAuth = true 
     });
     builder.addCase(fetchLogin.pending, (state) => {
-      state.loading = true
+      state.isLoading = true
       state.errorLogin = undefined
     });
 
     // register
     builder.addCase(fetchRegister.rejected, (state, {payload}) => {
-      state.loading = false
+      state.isLoading = false
       state.errorSign = payload
     });
     builder.addCase(fetchRegister.fulfilled, (state) => {
-      state.loading = false
+      state.isLoading = false
+      state.isRegister = true
     });
     builder.addCase(fetchRegister.pending, (state) => {
-      state.loading = true
+      state.isLoading = true
       state.errorSign = undefined
     })
   },
 })
 
-export const { setAuth } = authSlice.actions
+export const { setAuth} = authSlice.actions
 
 export default authSlice.reducer

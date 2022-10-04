@@ -29,6 +29,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
     "server": "json-server -w server/db.json -p 3001 json-server db.json -m ./node_modules/json-server-auth",
     "build": "react-scripts build",

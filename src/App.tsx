@@ -10,7 +10,7 @@ import { RootState } from './store/store';
 import { RequireAuth } from './hoc/RequireAuth';
 
 function App() {
-  const auth = useSelector((state:RootState)=> state.auth.auth)
+  const auth = useSelector((state:RootState)=> state.auth.isAuth)
   const {logoutUser,init} = useAuth()
   const navigate = useNavigate()
 

@@ -2,10 +2,11 @@ import { UserData } from "../../types/auth";
 import { KnownError } from "../api/auth.api";
 
 export interface State {
-    auth:boolean,
+    isAuth:boolean,
     userToken: string | null,
     userInfo: UserData | null,
-    loading:boolean,
+    isLoading:boolean,
     errorLogin: KnownError | undefined ,
+    isRegister:boolean,
     errorSign:KnownError | undefined 
 }

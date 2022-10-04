@@ -10,8 +10,8 @@ import { RootState, useAppDispatch } from '../store/store';
 import { fetchLogin } from '../store/api/auth.api';
 
 const LogIn: React.FC = () => {
-    const isAuth = useSelector((state:RootState)=>state.auth.auth)
-    const loading = useSelector((state:RootState)=>state.auth.loading)
+    const isAuth = useSelector((state:RootState)=>state.auth.isAuth)
+    const loading = useSelector((state:RootState)=>state.auth.isLoading)
     const err = useSelector((state:RootState)=>state.auth.errorLogin)
     const appDispatch = useAppDispatch()
 

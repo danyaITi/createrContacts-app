@@ -1,16 +1,19 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, UserOutlined, LoadingOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.min.css'
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form, Input, Spin, message } from 'antd';
 import React from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { UserData } from '../types/auth';
 import { fetchRegister } from '../store/api/auth.api';
 import { RootState, useAppDispatch } from '../store/store';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const Register: React.FC = () => {
     let err = useSelector((state:RootState)=>state.auth.errorSign)
+    const loading = useSelector((state:RootState)=>state.auth.isLoading)
+    const isReg = useSelector((state:RootState)=>state.auth.isRegister)
     const navigate = useNavigate()
     const appDispatch = useAppDispatch()
 
@@ -18,21 +21,19 @@ const Register: React.FC = () => {
         register,
     } = useForm()
 
+    const antIcon = <LoadingOutlined style={{ fontSize: 22, color: 'white' }} spin />
+
     const success = () => {
-        message
-          .loading('Создание пользователя...', 2.5)
-          .then(() => message.success('Вы успешно зарегистрировались!', 2))
+        message.success('Вы успешно зарегистрировались!');
       };
 
 
     const registerHandler = async (data:UserData) => {
-        if(err){
-            navigate('/register')
-        } else{
-            await appDispatch(fetchRegister(data))
-            success()
-            // navigate('/login')
-        }
+        await appDispatch(fetchRegister(data))
+    }
+
+    if(isReg){
+        success()
     }
 
   return (
@@ -70,7 +71,7 @@ const Register: React.FC = () => {
                     <Form.Item >
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <Button  type="primary" htmlType="submit" className="login-form-button me-3 w-100 mb-1">
-                            Зарегистрироваться
+                            {loading ? <Spin indicator={antIcon} /> : 'Зарегистрироваться'}
                             </Button>
                             <span>
                                 <Link to='/login'><a>Войти</a></Link>
