@@ -1,4 +1,4 @@
-Проект по созданию контактов.
+#
 
 Чтобы запустить проект нужно прописать: 
 1. git clone https://github.com/danyaITi/createrContacts-app
