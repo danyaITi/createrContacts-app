@@ -1,10 +1,10 @@
 export interface UserData {
-    email:string,
-    password:string
-    id:number
+	email: string
+	password: string
+	id: number
 }
 
 export interface UserResponse {
-    accessToken:string
-    user: UserData
-  }
+	accessToken: string
+	user: UserData
+}

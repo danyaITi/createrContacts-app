@@ -1,13 +1,13 @@
-export interface IContacts {
-    id:number,
-    firstName:string,
-    surName:string,
-    phone:string
+export interface Contacts {
+	id: number
+	firstName: string
+	surName: string
+	phone: string
 }
 
-export interface NContact {
-    firstName:string,
-    surName:string,
-    phone:string,
-    userId:number | undefined,
+export interface Contact {
+	firstName: string
+	surName: string
+	phone: string
+	userId: number | undefined
 }

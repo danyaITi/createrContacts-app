@@ -14,6 +14,11 @@
       "email": "fff@mail.ru",
       "password": "$2a$10$7Ub5x1PMKzNL86gDxpBObubjwcSFoqZUZFB1cMx/fAOTMwQZxqgey",
       "id": 3
+    },
+    {
+      "email": "danil.bch@mail.ru",
+      "password": "$2a$10$dRs9fOm9VV0QTJFK49m8ceNnB3lA/QddReRDYCM/04AXFSnjJxYo6",
+      "id": 4
     }
   ],
   "contacts": [
